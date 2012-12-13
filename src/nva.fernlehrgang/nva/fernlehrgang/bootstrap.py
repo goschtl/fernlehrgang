@@ -16,6 +16,7 @@ from zope.event import notify
 from zope.interface import implements
 from zope.location import Location
 from zope.security.proxy import removeSecurityProxy
+from cromlech.configuration.utils import load_zcml
 
 Library = declarative_base()
 
@@ -77,13 +78,14 @@ class TrajectApplication(object):
                     return removeSecurityProxy(result)
 
 
-def sql_app(global_conf, name, url, **kwargs):
+def sql_app(global_conf, name, url, zcml_file, **kwargs):
     """A factory used to bootstrap the TrajectApplication.
     As the TrajectApplication will use SQL, we use this
     'once and for all' kind of factory to configure the
     SQL connection and inject the demo datas.
     """
     # We register our SQLengine under a given name
+    load_zcml(zcml_file)
     engine = create_and_register_engine(url, name)
 
     # We bind out SQLAlchemy definition to the engine
