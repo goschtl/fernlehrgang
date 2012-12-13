@@ -1,0 +1,22 @@
+[filter-app:main]
+use = egg:fanstatic#fanstatic
+recompute_hashes = false
+versioning = true
+bottom = true
+minified = true
+next = crom
+
+[filter:locale]
+use = egg:cromlech.i18n#locale
+
+[app:crom]
+use = egg:nva.fernlehrgang#app
+zcml_file = ${zcml:output}
+;filter-with = locale
+name = db
+url = sqlite:///${deploy_ini:storage}/demo.db
+
+[server:main]
+use = egg:Paste#http
+host = 0.0.0.0
+port = 8082
