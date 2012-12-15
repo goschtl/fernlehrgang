@@ -47,6 +47,7 @@ setup(name='nva.fernlehrgang',
           'js.jqueryui',
           'js.bootstrap',
           'BeautifulSoup',
+          'infrae.testbrowser',
           # -*- Extra requirements: -*-
       ],
       entry_points={

@@ -78,14 +78,15 @@ class TrajectApplication(object):
                     return removeSecurityProxy(result)
 
 
-def sql_app(global_conf, name, url, zcml_file, **kwargs):
+def sql_app(global_conf, name, url, zcml_file=None, **kwargs):
     """A factory used to bootstrap the TrajectApplication.
     As the TrajectApplication will use SQL, we use this
     'once and for all' kind of factory to configure the
     SQL connection and inject the demo datas.
     """
     # We register our SQLengine under a given name
-    load_zcml(zcml_file)
+    if zcml_file:
+        load_zcml(zcml_file)
     engine = create_and_register_engine(url, name)
 
     # We bind out SQLAlchemy definition to the engine
