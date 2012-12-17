@@ -1,9 +1,22 @@
 # -*- coding: utf-8 -*-
+# Copyright (c) 2007-2011 NovaReto GmbH
+# cklinger@novareto.de
+
+import os
+
+from dolmen.template import TALTemplate
 
 from cromlech.dawnlight import ViewLookup
 from cromlech.dawnlight import view_locator, query_view
 from cromlech.configuration.utils import load_zcml
 from cromlech.i18n import register_allowed_languages
+
+
+TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), 'templates')
+
+
+def get_template(filename):
+    return TALTemplate(os.path.join(TEMPLATES_DIR, filename))
 
 
 view_lookup = ViewLookup(view_locator(query_view))

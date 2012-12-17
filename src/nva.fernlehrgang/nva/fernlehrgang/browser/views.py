@@ -2,26 +2,18 @@
 # Copyright (c) 2007-2011 NovaReto GmbH
 # cklinger@novareto.de
 
-import os
 import dolmen.view
 
-from .interfaces import ISQLSite
+from nva.fernlehrgang.interfaces import ISQLSite
 from cromlech.webob.response import Response
 from dolmen.layout import Layout
-from dolmen.template import TALTemplate
 from dolmen.view import query_view, make_layout_response
 from grokcore.component import name, context
 from grokcore.security import require
 from js.jqueryui import black_tie
-from .resources import bootstrap
+from nva.fernlehrgang.resources import bootstrap
+from nva.fernlehrgang.utils import get_template
 from zope.interface import Interface
-
-
-TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), 'templates')
-
-
-def get_template(filename):
-    return TALTemplate(os.path.join(TEMPLATES_DIR, filename))
 
 
 class FLGLayout(Layout):
@@ -40,7 +32,7 @@ class FLGLayout(Layout):
 
 class SiteIndex(dolmen.view.View):
     name('index')
-    context(ISQLSite)
+    context(Interface)
     require('zope.Public')
     responseFactory = Response
     make_response = make_layout_response

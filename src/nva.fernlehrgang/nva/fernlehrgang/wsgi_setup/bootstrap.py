@@ -1,6 +1,6 @@
 import transaction
-from .interfaces import ISQLSite
-from .utils import view_lookup
+from nva.fernlehrgang.interfaces import ISQLSite
+from nva.fernlehrgang.utils import view_lookup
 from cromlech.dawnlight import DawnlightPublisher
 from cromlech.browser import PublicationBeginsEvent, PublicationEndsEvent
 from cromlech.security import Interaction

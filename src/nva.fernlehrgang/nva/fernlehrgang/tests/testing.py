@@ -1,14 +1,17 @@
+# -*- coding: utf-8 -*-
+# Copyright (c) 2007-2011 NovaReto GmbH
+# cklinger@novareto.de
+
 import os
-from zope.testing.cleanup import cleanUp
-from zope.configuration import xmlconfig, config
+
 from zope.component.hooks import setHooks
+from zope.configuration import xmlconfig, config
+from zope.testing.cleanup import cleanUp
 
 
 def application(request):
     from nva.fernlehrgang.bootstrap import sql_app
     return sql_app({}, 'testDB', 'sqlite:////Users/christian/work/flgn/fernlehrgang/var/test.db')
-
-
 
 
 def configure(request, module, zcml):

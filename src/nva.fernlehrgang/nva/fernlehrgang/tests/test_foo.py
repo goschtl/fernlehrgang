@@ -1,8 +1,12 @@
+# -*- coding: utf-8 -*-
+# Copyright (c) 2007-2011 NovaReto GmbH
+# cklinger@novareto.de
+
 from cromlech.browser.testing import TestRequest
-from zope.interface import implements
+from nva.fernlehrgang.browser.views import SiteIndex
 from nva.fernlehrgang.interfaces import ISQLSite
-from nva.fernlehrgang.views import SiteIndex
 from zope.component import getMultiAdapter
+from zope.interface import implements
 
 
 class Context(object):

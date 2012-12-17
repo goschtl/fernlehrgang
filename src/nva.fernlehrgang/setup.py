@@ -48,6 +48,7 @@ setup(name='nva.fernlehrgang',
           'js.bootstrap',
           'BeautifulSoup',
           'infrae.testbrowser',
+          'traject',
           # -*- Extra requirements: -*-
       ],
       entry_points={
@@ -55,7 +56,7 @@ setup(name='nva.fernlehrgang',
             'nva.fernlehrgang = nva.fernlehrgang.resources:library',
          ],
          'paste.app_factory': [
-             'app = nva.fernlehrgang.bootstrap:sql_app',
+             'app = nva.fernlehrgang.wsgi_setup.bootstrap:sql_app',
          ],
          'paste.filter_factory': [
              'global_config = nva.fernlehrgang.utils:configuration',
