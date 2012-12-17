@@ -35,5 +35,4 @@ def test_integration(config, app):
     browser = Browser(app)
     browser.options.handle_errors = False
     browser.open('http://localhost/')
-    import ipdb; ipdb.set_trace()
     assert browser.status == "200 OK"
